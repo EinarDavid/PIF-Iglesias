@@ -1,0 +1,20 @@
+export default{
+    LOADING: require('../../assets/Loading.jpg'),
+    SPLASH1: require('../../assets/Splash1.jpg'),
+    SPLASH2: require('../../assets/Splash2.jpg'),
+    LOGIN: require('../../assets/Login.jpg'),
+    LINE: require('../../assets/Line.png'),
+    FONDOAPP: require('../../assets/fondo-app.jpg'),
+    HOME: require('../../assets/Home.jpg'),
+    HOME2: require ('../../assets/Home2.jpg'),
+    IMAGE_CARRUSEL: require('../../assets/imagen-carrusel.jpg'),
+    FONDO_ACTIVITY: require('../../assets/Fondo-Activity.jpg'),
+    ACTIVITY_IMAGE: require('../../assets/Activity.png'),
+    ACTIVITY: require('../../assets/Reu.jpg'),
+    FONDO_WHITE:require('../../assets/Fondo_White.jpg') ,
+    FONDO_PERFIL: require('../../assets/Fondo_Perfil.jpg'),
+    FONDO_FOTOPERFIL:require('../../assets/Fondo_FotoPerfil.png'),
+    FOTO: require('../../assets/Foto_Perfil.jpg'),
+    ICON_CI: require('../../assets/ci.png'),
+    IMAGEN2: require('../../assets/imagen2.jpg')
+}
