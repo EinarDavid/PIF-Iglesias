@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground, Image, Text, FlatList, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, View, ImageBackground, Image, Text, FlatList, ScrollView, SafeAreaView, ToastAndroid } from 'react-native';
 import Title from '../../Components/Text/Title';
 import TitleDes from '../../Components/Text/TitleDescription';
 import ButtonNav from '../../Components/Button/ButtonNavNext';
@@ -14,17 +14,21 @@ import Colors from '../../Config/Colors';
 var ImageArreglo = [{ Image: Images.IMAGE_CARRUSEL }, { Image: Images.IMAGEN2 }]
 
 const Home = () => {
-    if (global.iglesia != undefined){
-    
-        ImageArreglo = global.iglesia.Fotos.map(a=>{
-            var va =     {
-                Image:{
-                    uri: ('http://138.128.243.212:7000/fotos/Iglesias/'+a)
+    const urlIp= '83.229.86.168:7000';
+    if (global.iglesia != undefined) {
+
+        ImageArreglo = global.iglesia.Fotos.map(a => {
+            var va = {
+                Image: {
+                    uri: (`http://${urlIp}/fotos/Iglesias/` + a)
                 }
             }
             return va
         });
-        
+
+    }
+    const _onPressFeIgualAamor = () =>{
+        ToastAndroid.show('Esta Aplicación es desarrollada por EINAR DAVID VILLARROEL', ToastAndroid.SHORT);
     }
     //console.log("66666666666666666666666666666666666666666666666",global.iglesia);
     return (
@@ -35,15 +39,15 @@ const Home = () => {
                         <ButtonNav
                             ColorText={Colors.white}
                             Accion={Constans.STRING.FE_IGUAL_AMOR}
-                        //onPress={() => { navigation.navigate('Login') }}
+                            onPress={ _onPressFeIgualAamor}
                         />
                     </View>
                     <Image source={Images.LINE} style={{ width: '100%' }} />
                 </View>
-                <View style={{ flex: 11}}>
+                <View style={{ flex: 11 }}>
                     <SafeAreaView>
                         <ScrollView>
-                            <View style={{paddingLeft: 20, paddingRight: 20 }}>
+                            <View style={{ paddingLeft: 20, paddingRight: 20 }}>
                                 <View style={{ height: 15 }} />
                                 <View style={styles.titlle}>
                                     <Title
@@ -68,7 +72,7 @@ const Home = () => {
                                         AlineacionTitle={'left'}
                                         ColorTitle={Colors.white}
                                         FontSize={26}
-                                        Contenido={'"'+global.iglesia.Mision+'"'}
+                                        Contenido={'"' + global.iglesia.Mision + '"'}
                                         AlineacionCon={'left'}
                                         ColorCon={Colors.white}
                                     />
@@ -79,7 +83,7 @@ const Home = () => {
                                         AlineacionTitle={'right'}
                                         ColorTitle={Colors.white}
                                         FontSize={26}
-                                        Contenido={'"'+global.iglesia.Vision+'"'}
+                                        Contenido={'"' + global.iglesia.Vision + '"'}
                                         AlineacionCon={'right'}
                                         ColorCon={Colors.white}
                                     />

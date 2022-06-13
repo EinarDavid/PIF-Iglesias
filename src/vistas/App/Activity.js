@@ -1,17 +1,51 @@
-import React from 'react';
-import { StyleSheet, View, ImageBackground, FlatList, Image, SafeAreaView, ScrollView, Text } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, View, ImageBackground, FlatList, Image, SafeAreaView, ScrollView, Text, ToastAndroid } from 'react-native';
+
 import Title from '../../Components/Text/Title';
 import TitleDes from '../../Components/Text/TitleDescription';
 import ButtonNav from '../../Components/Button/ButtonNavNext';
 import Section from '../../Components/Text/SeparadorSection';
-
+import ButtonNormal from '../../Components/Button/ButtonNormal';
 import Images from '../../Config/Images';
 import Constans from '../../Config/Constans';
 import Colors from '../../Config/Colors';
+import { DropdownInput } from '../../Components/Input/Dropdown';
+import ButtonImage from '../../Components/Button/ButtonImage';
+import { CardActivity } from '../../Components/Actividad/CardActivity';
+import Fetch from '../../Utils//Fetch';
 
-const ImageArreglo = [{ Image: Images.ACTIVITY }, { Image: Images.ACTIVITY }]
+// const ImageArreglo = [{ Image: Images.ACTIVITY }, { Image: Images.ACTIVITY }]
 
 const Activity = () => {
+    const urlIp = '83.229.86.168:7000';
+
+    const [actividades, setActividades] = useState(global.iglesia.Actividades)
+
+    const ActualizaIglesia = (callback) => {
+        Fetch("/VerDatosIglesia", async (iglesia) => {
+            global.iglesia = iglesia;
+            callback();
+            // console.log("Res entro aqui--------", global.iglesia);
+
+        }, { idIglesia: global.usuario.usuario.Iglesia }, "POST");
+    }
+
+
+    useEffect(() => {
+        ActualizaIglesia(() => {
+            setActividades(global.iglesia.Actividades);
+        });
+    }, [])
+
+
+    // console.log (global.iglesia.Actividades);
+
+
+    const _onPressFeIgualAamor = () => {
+        ToastAndroid.show('Esta Aplicación es desarrollada por EINAR DAVID VILLARROEL', ToastAndroid.SHORT);
+    }
+
+
     return (
         <ImageBackground source={Images.FONDO_WHITE} style={{ width: '100%', height: '100%' }}>
             <View style={{ paddingTop: 0, flexDirection: 'column' }}>
@@ -24,7 +58,7 @@ const Activity = () => {
                                 <ButtonNav
                                     ColorText={Colors.white}
                                     Accion={Constans.STRING.FE_IGUAL_AMOR}
-                                //onPress={() => { navigation.navigate('Login') }}
+                                    onPress={_onPressFeIgualAamor}
                                 />
                             </View>
                             <View style={{ height: 100 }} />
@@ -40,47 +74,24 @@ const Activity = () => {
                             <View style={{ height: 80 }} />
 
                             {
-                                global.iglesia.Actividades.map((a,i) => {
+                                actividades.map((a, i) => {
                                     var fechaactual = new Date();
-                                    
+
                                     var fecha = new Date(a.Inicio);
-                                    fecha.setDate(fecha.getDate()+2);
-                                    console.log(fechaactual, fecha, fechaactual<fecha)
-                                    if(fechaactual<=fecha)
-                                    {
+                                    fecha.setDate(fecha.getDate() + 2);
+                                    console.log(fechaactual, fecha, fechaactual < fecha)
+
+                                    if (fechaactual <= fecha) {
                                         return (
-                                            <View key = {i}>
-                                                <View style={{ backgroundColor: 'white', borderRadius: 13, elevation: 5 }}>
-                                                    <Image source={{ uri: "http://138.128.243.212:7000/fotos/Iglesias/Actividad/" + a.FotoActividad }} style={{ width: '100%', height: 450, resizeMode: 'stretch', borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
-                                                    <View style={{ borderBottomRightRadius: 13, borderBottomLeftRadius: 13 }} >
-                                                        <View style={{ height: 15 }} />
-                                                        <View style={{ marginLeft: 30, marginRight: 30 }}>
-                                                            <TitleDes
-                                                                Titulo={a.Titulo}
-                                                                AlineacionTitle={'left'}
-                                                                ColorTitle={Colors.primary}
-                                                                FontSize={26}
-                                                                Contenido={a.Descripcion}
-                                                                AlineacionCon={'left'}
-                                                                ColorCon={Colors.description}
-                                                            />
-                                                        </View>
-                                                        <View style={{ height: 20 }} />
-                                                    </View>
-                                                </View>
-                                                <View style={{ height: 20 }} />
+                                            <View key={i}>
+                                                <CardActivity  actividades={a} />
                                             </View>
                                         )
-    
+
                                     }
 
                                 })
                             }
-
-
-
-
-
                         </View>
                     </ScrollView>
                 </SafeAreaView>
@@ -101,6 +112,25 @@ const styles = StyleSheet.create({
     boton: {
         alignItems: 'flex-start',
         //marginLeft: 30,
+    },
+    AccionContainer: {
+        marginTop: 60,
+        alignItems: 'flex-end',
+        // justifyContent: 'center',
+        // backgroundColor: 'blue',
+        width: '20%',
+        alignItems: 'flex-end'
+    },
+    ContainerDescription: {
+        // backgroundColor: 'black',
+        width: '100%',
+        // display: 'flex',
+        // display: 'none',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingLeft: 10,
+        paddingRight: 10,
+
     },
 });
 export default Activity;

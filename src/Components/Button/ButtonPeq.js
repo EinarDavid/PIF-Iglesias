@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
         justifyContent:'flex-end',
         //width:'100%',
         //backgroundColor: '#fff',
+        
 
     },
     button: {

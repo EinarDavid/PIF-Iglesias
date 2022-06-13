@@ -15,6 +15,7 @@ import Utils from '../../Utils/Utils';
 
 const EditarPerfil = () => {
     const navigation = useNavigation();
+    const urlIp= '83.229.86.168:7000';
 
     const [nombre, setNombre] = useState(global.usuario.usuario.Nombre);
     const [errorNombre, setErrorNombre] = useState('');
@@ -68,7 +69,7 @@ const EditarPerfil = () => {
                         }
                     }, { ci: global.usuario.usuario.Ci, contra: global.usuario.usuario.Contraseña }, "POST");
                     global.usuario = res;
-                    console.log("11111111111111111111111111111111111!", global.usuario);
+                    // console.log("11111111111111111111111111111111111!", global.usuario);
                     //navigation.push('tabs');
                     navigation.reset({
                         index: 0,

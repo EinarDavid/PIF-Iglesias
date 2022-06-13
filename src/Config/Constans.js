@@ -9,7 +9,9 @@ const strings={
     NETX: '>',
     PREV: '<',
     TITULOSPLASH1: 'Bienvenido',
-    CONTENIDOSPLASH1: 'Mediante esta aplicacion podras ver todas las actividades que tu iglesia publique, asi para estar al tanto y no te pierdas de ningun evento.',
+    TITULOSPLASH2: 'Church',
+    CONTENIDOSPLASH1: 'Mediante esta aplicación podrás ver todas las actividades que tu iglesia publique, así para estar al tanto y no te pierdas de ningún evento.',
+    CONTENIDOSPLASH2: 'Es una aplicación creada pensada en ti, viendo la necesidad de digitalizar la información de tu iglesia creamos esta APP para que puedas gestionar tu información.',
     TITULO1: 'Bienvenido',
     TITULO2: 'App Mobile',
     TITULO3: 'App Web',
@@ -29,9 +31,12 @@ const strings={
     RES_SOCIAL: 'RESPONSABILIDAD SOCIAL',
     PASTORES: 'PASTORES',
     ACTIVIDAD: 'Actividades',
+    HORARIO:'Recuerdos',
     ACT_DES: 'Mira todo lo nuevo que se viene',
+    HORARIOS_DES:'Ven y participa de todas nuestras actividades',
     NOMBRE:'Einar Villarroel',
     RECUERDOS:'Recuerdos',
+    FOTOS: 'Icon Foto' 
 }
 export default{
     CONFIG: config,

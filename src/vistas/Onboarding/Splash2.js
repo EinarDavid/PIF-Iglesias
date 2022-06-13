@@ -14,10 +14,10 @@ const Splash2 = ({ navigation }) => {
                 <View style={{ flex: 1, justifyContent: 'flex-end' }}>
                     <View style={styles.titlle}>
                         <TitleDes
-                            Titulo={Constans.STRING.TITULOSPLASH1}
+                            Titulo={Constans.STRING.TITULOSPLASH2}
                             AlineacionTitle={'center'}
                             ColorTitle={Colors.white}
-                            Contenido={Constans.STRING.CONTENIDOSPLASH1}
+                            Contenido={Constans.STRING.CONTENIDOSPLASH2}
                             AlineacionCon={'center'}
                             ColorCon={Colors.white}
                             FontSize={26}

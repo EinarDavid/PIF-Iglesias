@@ -85,7 +85,7 @@ const Login = ({ navigation, route }) => {
                     global.usuario=res;
                     Fetch("/VerDatosIglesia", async (iglesia)=>{
                         global.iglesia = iglesia;
-                        console.log("{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}", res.usuario)
+                        //console.log("{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}}", res.usuario)
                         //Fetch("/FotoPerfil/"+res.usuario.FotoPerfil, (foto)=>{
                             //res.foto = foto;
                             //console.log("--------", res.foto)

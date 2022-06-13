@@ -1,11 +1,10 @@
-const dominio = "http://138.128.243.212:7000"
-var ret = (ruta, callback, datos = {}, method = 'GET')=>{
+const dominio = "http://83.229.86.168:7000"
+var ret = (ruta, callback, datos = {}, method = 'GET', cabecera = {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'})=>{
   let data = {
     method: method,
-    headers: {//Header Defination
-      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-    }
+    headers: cabecera
   }
+
   if(method!="GET")
   {
     var formBody = [];
@@ -17,7 +16,7 @@ var ret = (ruta, callback, datos = {}, method = 'GET')=>{
     formBody = formBody.join("&");
     data.body= formBody
   }
- // console.log(data)
+//  console.log(data)
   fetch(dominio + ruta, data)
         .then(response => {return(response.json())})
           .then(function(myJson) {callback(myJson)});

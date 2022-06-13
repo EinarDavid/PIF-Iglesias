@@ -9,14 +9,16 @@ import Perfil from '../vistas/App/Perfil';
 
 const Tab = new createBottomTabNavigator();
 const TabScreen = () => {
+    const color = '#000000';
     return (
         <Tab.Navigator initialRouteName="Home"
-            activeColor="#fff" inactiveColor="#E0F2F1"
-            barStyle={{ backgroundColor: '#00695C' }}>
+            activeTintColor={{color:"#ffffff"}} 
+            inactiveTintColor={{color:"#E0F2F1"}}
+            tabBarBadgeStyle={{ backgroundColor: '#000000' }}>
             <Tab.Screen name="Home" component={Home}
                 options={{
                     tabBarLabel: 'Home',
-                    tabBarColor: '#fff',
+                    tabBarBadgeStyle: '#ffffff',
                     tabBarIcon: ({ color }) => (
                         <Icon name="home" color={color} size={26} />
                     ),
@@ -24,26 +26,27 @@ const TabScreen = () => {
             <Tab.Screen name="Activity" component={Activity}
                 options={{
                     tabBarLabel: 'Actividades',
-                    tabBarColor: '#fff',
+                    tabBarColor: '#ffffff',
                     tabBarIcon: ({ color }) => (
-                        <Icon name="calendar-today" color={color} size={26} />
+                        <Icon name="book-online" color={color} size={26} />
                     ),
                 }}
             />
-             <Tab.Screen name="Ubicacion" component={Ubicacion}
+            <Tab.Screen name="Servicio" component={Ubicacion}
                 options={{
-                    tabBarLabel: 'Ubicacion',
-                    tabBarColor: '#fff',
+                    tabBarLabel: 'Galeria',
+                    tabBarBadgeStyle: {backgroundColor:'#000000'},
+                    style:{backgroundColor:'#000000'},
                     tabBarIcon: ({ color }) => (
-                        <Icon name="location-on" color={color} size={26} />
+                        <Icon name="dns" color={color} size={26} />
                     ),
                 }}
             />
             <Tab.Screen name="Perfil" component={Perfil}
                 options={{
                     tabBarLabel: 'Perfil',
-                    tabBarColor: '#fff',
-                    tabBarIcon: ({ color }) => (
+                    tabBarColor: '#000000',
+                    tabBarIcon: ({ color='#fff' }) => (
                         <Icon name="person" color={color} size={26} />
                     ),
                 }}

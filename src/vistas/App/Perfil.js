@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, ImageBackground, Image, Text, FlatList, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, View, ImageBackground, Image, Text, FlatList, ScrollView, SafeAreaView, ToastAndroid } from 'react-native';
 import Title from '../../Components/Text/Title';
 import TitleDes from '../../Components/Text/TitleDescription';
 import ButtonNav from '../../Components/Button/ButtonNavNext';
@@ -19,6 +19,10 @@ const ImageArreglo = [{ Image: Images.IMAGE_CARRUSEL }, { Image: Images.IMAGE_CA
 
 const Home = ({}) => {
     const navigation = useNavigation();
+    const urlIp= '83.229.86.168:7000';
+    const _onPressFeIgualAamor = () =>{
+        ToastAndroid.show('Esta Aplicación es desarrollada por EINAR DAVID VILLARROEL', ToastAndroid.SHORT);
+    }
     return (
         <ImageBackground source={Images.FONDO_PERFIL} style={{ width: '100%', height: '100%' }}>
             <View style={{ paddingTop: 0, flexDirection: 'column' }}>
@@ -29,12 +33,12 @@ const Home = ({}) => {
                                 <ButtonNav
                                     ColorText={Colors.primary}
                                     Accion={Constans.STRING.FE_IGUAL_AMOR}
-                                //onPress={() => { navigation.navigate('Login') }}
+                                    onPress={_onPressFeIgualAamor}
                                 />
                             </View>
                             <View >
                                 <Image source={Images.FONDO_FOTOPERFIL} style={{ width: '100%', height: 220, resizeMode: 'stretch' }} />
-                                <Image source={{ uri: 'http://138.128.243.212:7000/fotos/Membresias/'+global.usuario.usuario.FotoPerfil}} style={{width: 150, height:150, borderRadius:100, alignSelf:'center', position:'absolute', marginTop:23}} />
+                                <Image source={{ uri: `http://${urlIp}/fotos/Membresias/`+global.usuario.usuario.FotoPerfil}} style={{width: 150, height:150, borderRadius:100, alignSelf:'center', position:'absolute', marginTop:23}} />
                                 
                             </View>
                             <Section
@@ -170,6 +174,26 @@ const Home = ({}) => {
                                     ColorCon={Colors.description}
                                     Accion={'Cambiar'}
                                 //onPress={}
+                                />
+                            </View>
+                            <View style={{ height: 20 }} />
+                            <View style={{ borderRadius: 13, elevation: 5 }}>
+                                <List
+                                    ColorFondo={Colors.white}
+                                    ColorIcon={Colors.secundary}
+                                    BordeTopRight={13}
+                                    BordeTopLeft={13}
+                                    BorderBottomLef={13}
+                                    BorderBottonRight={13}
+                                    NameIcon={'book-online'}
+                                    Titulo={'Actividades'}
+                                    AlineacionTitle={'left'}
+                                    ColorTitle={Colors.Tittle}
+                                    Contenido={'Mira las actividades que participaste'}
+                                    AlineacionCon={'left'}
+                                    ColorCon={Colors.description}
+                                    Accion={'Mirar'}
+                                    onPress={() => navigation.navigate("Historico")}
                                 />
                             </View>
                             <View style={{ height: 30 }} />

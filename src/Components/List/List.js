@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import ButtonPeq from '../Button/ButtonPeq';
 import Colors from '../../Config/Colors';
 import Buttonpeq from '../Button/ButtonPeq';
 
@@ -10,8 +9,10 @@ const List = ({ ColorFondo, ColorIcon, BordeTopRight, BordeTopLeft, BorderBottom
     return (
         <View style={{
             flexDirection: 'row',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             alignItems: 'center',
+            paddingLeft: 12,
+            paddingRight: 12,
             height: 66,
             backgroundColor: ColorFondo,
             borderTopRightRadius: BordeTopRight,

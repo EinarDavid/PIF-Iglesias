@@ -16,5 +16,6 @@ export default{
     FONDO_FOTOPERFIL:require('../../assets/Fondo_FotoPerfil.png'),
     FOTO: require('../../assets/Foto_Perfil.jpg'),
     ICON_CI: require('../../assets/ci.png'),
-    IMAGEN2: require('../../assets/imagen2.jpg')
+    IMAGEN2: require('../../assets/imagen2.jpg'),
+    HORARIO: require('../../assets/Horario.png'),
 }

@@ -13,6 +13,7 @@ import IniciarSesion from '../vistas/Login/IniciarSesion';
 
 import Tabs from './TabsRouter';
 import EditPerfil from '../vistas/App/EditPerfil';
+import { HistoricoActivity } from '../vistas/App/HistoricoActivity';
 
 
 
@@ -59,6 +60,12 @@ const LogRouter = ({})=>{
             component = {EditPerfil}
             options={{ headerShown: false }}
             />
+            <Stack.Screen
+            name="Historico"
+            component = {HistoricoActivity}
+            options={{ headerShown: false }}
+            />
+
         </Stack.Navigator>
         
     );
